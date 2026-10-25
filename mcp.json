@@ -1,0 +1,55 @@
+{
+  "mcpServers": {
+    "omar-khayyam-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "KHAYYAM",
+        "TARGET_CHAIN": "Solana",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "intersect_conic_cubic_roots",
+          "description": "Solves x^3 + cx = d via intersection of parabolas and circles in Euclidean space",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "coeff_c": {
+                "type": "number"
+              },
+              "const_d": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "coeff_c",
+              "const_d"
+            ]
+          }
+        },
+        {
+          "name": "compute_jalali_calendar_leap",
+          "description": "Calculates 33-year solar intercalation cycle yielding 1-day error per 5,000 years",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "year"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
